@@ -23,6 +23,19 @@ TOPPERS/ASPは CQ出版の Interface誌 2021年8月号に掲載されたTOPPERS/
 ![schematic](/pico-asp-4Demo-V2.jpg)
 
 
+◆ビルド環境構築メモ
+
+ビルド環境の構築に関しては、以下のQiitaのページを参照のこと。
+
+- ラズパイを使ったTOPPERS用Cortex-M開発環境の構築
+
+  https://qiita.com/Yukiya_Ishioka/items/e68a6aabf72f0721948d
+
+- ラズパイPico2用TOPPERS/ASPのビルド手順
+
+  https://qiita.com/Yukiya_Ishioka/items/652f295cd43b159857d8
+
+
 ◆ビルド手順 メモ
 
 tar xzf pico-asp-4Demo-V2-asp.tar.gz
