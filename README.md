@@ -30,12 +30,17 @@ tar xzf pico-asp-4Demo-V2-asp.tar.gz
 git clone -b 1.4.0 https://github.com/raspberrypi/pico-sdk.git
 
 cd elf2uf2
+
 export PICO_SDK_PATH=../pico-sdk
+
 cmake ../pico-sdk/tools/elf2uf2
+
 make
 
 cd ../build
+
 make
+
 
 
 ◆TOPPERSライセンスについて
