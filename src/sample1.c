@@ -27,7 +27,6 @@
 
 void  pico_gpio_led_set( int on );
 unsigned int  pico_dev_read_adc0( void );
-unsigned int  pico_dev_read_adc1( void );
 int  pico_dev_adc_init( void );
 int  pico_dev_read_dip( void );
 int  pico_dev_dip_init( void );
@@ -35,6 +34,8 @@ int  pico_gpio_select_btn( void );
 int  pico_gpio_restart_btn( void );
 int  pico_dev_btn_init( void );
 int  pico_dev_chk_spi_miso( void );
+
+unsigned int  pico_dev_rand_read( void );
 
 int hub75_test_init( void );
 int hub75_test_loop( void );
@@ -123,7 +124,7 @@ void task1(intptr_t exinf)
         tslp_tsk( 5*100 );
         rand_wait++;
         if( rand_wait >= 120 ) {
-            yoji_rand_seed = pico_dev_read_adc1() & 0xffff;
+            yoji_rand_seed = pico_dev_rand_read();
             while( yoji_rand_seed == 0 ) {
                 yoji_rand_seed = rand() & 0xffff;
             }
@@ -186,8 +187,8 @@ void main_task(intptr_t exinf)
         syslog(LOG_NOTICE, "# Mode button status : OFF" );
     }
 
-    yoji_rand_seed = pico_dev_read_adc1();
-    syslog(LOG_NOTICE, "# Value of CdS : 0x%x", yoji_rand_seed );
+    yoji_rand_seed = pico_dev_rand_read();
+    syslog(LOG_NOTICE, "# pico_dev_rand_read() : 0x%x", yoji_rand_seed );
     srand( yoji_rand_seed );
 
     syslog(LOG_NOTICE, "# MAIN: DIP-SW val : %d", pico_dev_read_dip() );

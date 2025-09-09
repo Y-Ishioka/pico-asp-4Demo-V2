@@ -155,11 +155,13 @@ ifndef OMIT_OPTIMIZATION
 endif
 CDEFS := $(CDEFS) 
 INCLUDES := -I. -I$(SRCDIR)/include -I$(SRCDIR)/arch -I$(SRCDIR) $(INCLUDES) \
-            -I ../pico-sdk/src/rp2_common/pico_stdio/include \
             -I ../pico-sdk/src/common/pico_stdlib/include \
             -I ../pico-sdk/src/common/pico_base/include \
+            -I ../pico-sdk/src/common/pico_time/include \
             -I ../pico-sdk/src/boards/include \
+            -I ../pico-sdk/src/rp2040/hardware_regs/include \
             -I ../pico-sdk/src/rp2040/hardware_structs/include \
+            -I ../pico-sdk/src/rp2_common/pico_stdio/include \
             -I ../pico-sdk/src/rp2_common/pico_platform/include \
             -I ../pico-sdk/src/rp2_common/hardware_base/include \
             -I ../pico-sdk/src/rp2_common/hardware_claim/include \
@@ -167,7 +169,6 @@ INCLUDES := -I. -I$(SRCDIR)/include -I$(SRCDIR)/arch -I$(SRCDIR) $(INCLUDES) \
             -I ../pico-sdk/src/rp2_common/hardware_irq/include \
             -I ../pico-sdk/src/rp2_common/hardware_gpio/include \
             -I ../pico-sdk/src/rp2_common/hardware_pio/include \
-            -I ../pico-sdk/src/common/pico_time/include \
             -I ../pico-sdk/src/rp2_common/hardware_timer/include \
             -I ../pico-sdk/src/rp2_common/hardware_spi/include \
             -I ../pico-sdk/src/rp2_common/hardware_resets/include \
@@ -187,6 +188,7 @@ APPLDIR = ../pico-sdk/src/rp2_common/hardware_pio \
           ../pico-sdk/src/rp2_common/hardware_claim \
           ../pico-sdk/src/rp2_common/hardware_spi \
           ../pico-sdk/src/rp2_common/hardware_adc \
+          ../pico-sdk/src/rp2_common/pico_lwip \
           ../src \
           ../src/ff14b-pico \
           ../src/font
@@ -206,6 +208,7 @@ else
                task_niji.o \
                task_maze.o \
                pio.o claim.o \
+               random.o \
                adc.o \
                read_fontx2.o \
                app_dev.o \

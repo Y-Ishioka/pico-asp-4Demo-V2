@@ -23,6 +23,21 @@ TOPPERS/ASPは CQ出版の Interface誌 2021年8月号に掲載されたTOPPERS/
 ![schematic](/pico-asp-4Demo-V2.jpg)
 
 
+◆ビルド手順 メモ
+
+tar xzf pico-asp-4Demo-V2-asp.tar.gz
+
+git clone -b 1.4.0 https://github.com/raspberrypi/pico-sdk.git
+
+cd elf2uf2
+export PICO_SDK_PATH=../pico-sdk
+cmake ../pico-sdk/tools/elf2uf2
+make
+
+cd ../build
+make
+
+
 ◆TOPPERSライセンスについて
 
 当プログラムは一部，TOPPERSライセンス下のソースを流用・改造して作成されています．

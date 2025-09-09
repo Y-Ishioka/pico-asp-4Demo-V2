@@ -21,6 +21,8 @@ https://www.toppers.jp/license.html
 
 ◆ビルド手順 メモ
 
+tar xzf pico-asp-4Demo-V2-asp.tar.gz
+
 ----------------------------------------
 -rw-rw-r--  1 ubuntu ubuntu 1690 Oct 11  2022 TOPPERS_License.txt
 drwxr-xr-x 15 ubuntu ubuntu 4096 May 10  2021 asp/

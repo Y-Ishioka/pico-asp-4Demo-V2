@@ -8,7 +8,6 @@
 #include "hardware/adc.h"
 
 #define PIN_ADC_TIME_SEL 26
-#define PIN_ADC_CDS_CELL 27
 #define PIN_BTN_MODE_SEL 14
 #define PIN_BTN_RESTART  15
 
@@ -17,6 +16,8 @@
 #define PIN_DIPSW_0      22
 #define PIN_DIPSW_1      28
 #define PIN_DIPSW_2      27
+
+unsigned int pico_lwip_rand(void);
 
 
 int  pico_dev_chk_spi_miso( void )
@@ -37,23 +38,12 @@ unsigned int  pico_dev_read_adc0( void )
 }
 
 
-unsigned int  pico_dev_read_adc1( void )
-{
-    adc_select_input(1);
-
-    return  adc_read();
-}
-
-
 int  pico_dev_adc_init( void )
 {
     adc_init();
 
     adc_gpio_init( PIN_ADC_TIME_SEL );
     adc_select_input( 0 );
-
-    adc_gpio_init( PIN_ADC_CDS_CELL );
-    adc_select_input( 1 );
 
     return  0;
 }
@@ -94,6 +84,15 @@ int  pico_dev_dip_init( void )
     gpio_pull_up(PIN_DIPSW_1);
 
     return  0;
+}
+
+
+unsigned int  pico_dev_rand_read( void )
+{
+    unsigned int  rand32;
+    rand32 = pico_lwip_rand();
+
+    return  rand32;
 }
 
 
